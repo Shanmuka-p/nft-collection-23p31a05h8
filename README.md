@@ -1,106 +1,111 @@
-🎨 NFT Collection (ERC-721)
+# 🔷 NFT Collection (ERC-721)
 
-A production-grade ERC-721 Non-Fungible Token implementation designed with a focus on security, scalability, testability, and developer experience. This repository includes a fully Dockerized environment, supply-restricted minting logic, and an automated test suite engineered for reliability and reproducibility.
+![Solidity](https://img.shields.io/badge/Solidity-%5E0.8.20-363636?style=flat-square&logo=solidity)
+![Hardhat](https://img.shields.io/badge/Built%20With-Hardhat-yellow?style=flat-square)
+![Docker](https://img.shields.io/badge/Docker-Ready-blue?style=flat-square&logo=docker)
+![Tests](https://img.shields.io/badge/Tests-Passing-success?style=flat-square)
+![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)
 
-This project is ideal for developers exploring NFT smart contracts, ERC-721 token standards, Solidity best practices, and containerized blockchain development workflows.
+A production-grade, ERC-721 compatible Non-Fungible Token smart contract. This project implements a secure and optimized NFT collection with strict supply management, role-based access control, and a fully containerized automated test suite.
 
-🔍 Overview
+---
 
-This repository demonstrates a complete NFT system built using the ERC-721 standard. It highlights concepts such as token metadata, ownership restrictions, minting logic, and blockchain application security. The project is structured to be easy to extend, audit, and integrate into larger Web3 ecosystems.
+## 📖 Table of Contents
+- [Features](#-features)
+- [Technical Stack](#-technical-stack)
+- [Project Architecture](#-project-architecture)
+- [Getting Started](#-getting-started)
+- [Testing Strategy](#-testing-strategy)
+- [Docker Support](#-docker-support)
+- [License](#-license)
 
-🚀 Key Features
+---
 
-Fully ERC-721 Compliant
-Implements all required standard functions and metadata extensions.
+## 🚀 Features
 
-Supply-Restricted Minting (100 Max)
-Ensures strict enforcement of token supply limits.
+* **ERC-721 Standard:** Complete implementation of the EIP-721 interface, ensuring compatibility with OpenSea, MetaMask, and other wallets.
+* **Supply Enforcement:** Immutable maximum supply limit (100 tokens) to guarantee scarcity.
+* **Secure Access Control:** Granular ownership permissions using OpenZeppelin's `Ownable` pattern for sensitive operations like minting and configuration.
+* **Optimized Gas Usage:** Efficient storage patterns to minimize transaction costs for users.
+* **Safety Mechanisms:** Built-in checks against common vulnerabilities (e.g., zero-address transfers, integer overflows via Solidity 0.8+).
 
-Owner-Controlled Access
-All mint operations and administrative actions use OpenZeppelin’s secure Ownable module.
+## 🛠️ Technical Stack
 
-Security-Driven Architecture
-Validates input, prevents zero-address minting, avoids unsafe state changes, and follows Web3 security best practices.
+* **Smart Contracts:** Solidity v0.8.20
+* **Development Framework:** Hardhat
+* **Security Library:** OpenZeppelin Contracts v5.x
+* **Testing:** Mocha, Chai, Ethers.js
+* **CI/CD Readiness:** Dockerized environment for reproducible builds.
 
-Dockerized Execution Environment
-Enables consistent, reproducible, and CI-ready test execution.
+## 📂 Project Architecture
 
-Comprehensive Automated Testing
-Covers deployment, minting behavior, token URI generation, permissions, and transfer mechanics.
-
-🛠️ Technology Stack
-Component	Technology
-Smart Contract	Solidity v0.8.20
-Framework	Hardhat
-Libraries	OpenZeppelin Contracts
-Testing Tools	Mocha, Chai, Ethers.js
-Environment	Docker, Node.js
-
-This combination provides strong security guarantees, modularity, and an efficient development experience.
-
-📂 Directory Structure
+```text
 nft-collection/
 ├── contracts/
-│   └── NftCollection.sol       # Core ERC-721 smart contract
+│   └── NftCollection.sol       # Core ERC-721 Implementation
 ├── test/
-│   └── NftCollection.test.js   # Automated test suite
-├── Dockerfile                  # Container configuration
-├── hardhat.config.js           # Hardhat configuration
-└── package.json                # Dependencies and scripts
+│   └── NftCollection.test.js   # Comprehensive Test Suite (Unit & Integration)
+├── Dockerfile                  # Isolated Test Environment Config
+├── hardhat.config.js           # Network & Compiler Configuration
+└── package.json                # Project Dependencies
+```
 
+## ⚡ Getting Started
 
-This structure follows industry standards for Solidity/Hardhat projects.
+### Prerequisites
+* **Node.js** (v18 or higher)
+* **Docker** (Optional, for containerized execution)
 
-⚡ Setup and Installation
-Prerequisites
+### Installation
 
-Node.js v18+
+1.  **Clone the repository:**
+    ```bash
+    git clone <your-repo-url>
+    cd nft-collection
+    ```
 
-Docker (optional but recommended)
+2.  **Install dependencies:**
+    ```bash
+    npm install
+    ```
 
-Clone the Repository
-git clone <your-repo-url>
-cd nft-collection
+3.  **Compile the contracts:**
+    ```bash
+    npx hardhat compile
+    ```
 
+## 🧪 Testing Strategy
 
-Install dependencies:
+The project utilizes a comprehensive test suite to validate all core business logic and edge cases.
 
-npm install
+**Key Test Coverage:**
+* ✅ **Deployment:** Verifies initial ownership and supply state.
+* ✅ **Minting:** Tests permission logic (Owner only) and supply limits.
+* ✅ **Transfers:** Validates standard and safe transfer mechanisms.
+* ✅ **Metadata:** Ensures correct URI generation for off-chain data.
+* ✅ **Security:** Confirms that unauthorized actions revert as expected.
 
-
-Compile contracts:
-
-npx hardhat compile
-
-🧪 Testing Suite
-
-This project includes a full suite of tests validating:
-
-Contract deployment and initialization
-
-Ownership and access control
-
-Minting permissions and supply limits
-
-Token URI construction
-
-Transfer behavior and failure scenarios
-
-Run Tests Locally
+### Running Tests Locally
+```bash
 npx hardhat test
+```
 
-Run Tests via Docker (Recommended for CI/CD)
+## 🐳 Docker Support
 
-Build the project image:
+To ensure the application runs consistently across any machine, a Docker configuration is provided. This removes "it works on my machine" issues.
 
-docker build -t nft-collection .
+1.  **Build the Docker image:**
+    ```bash
+    docker build -t nft-collection .
+    ```
 
+2.  **Execute the test suite inside the container:**
+    ```bash
+    docker run nft-collection
+    ```
 
-Execute tests inside the container:
-
-docker run nft-collection
-
-Expected Output
+**Expected Output:**
+```text
   NftCollection
     Deployment
       ✔ Should set the right owner
@@ -114,15 +119,5 @@ Expected Output
       ✔ Should fail if sender doesn't own the token
 
   7 passing
-
-📜 License
-
-This project is licensed under the MIT License.
-You are free to use, modify, and distribute the code with proper attribution.
-
-📄 Recommended .gitignore
-node_modules
-artifacts
-cache
-coverage
-.env
+```
+---
