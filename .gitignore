@@ -1,0 +1,40 @@
+# Node modules
+node_modules/
+
+# Hardhat build artifacts
+artifacts/
+cache/
+
+# Environment variables
+.env
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Operating system files
+.DS_Store
+Thumbs.db
+
+# VSCode settings
+.vscode/
+
+# Docker files that are generated automatically (optional)
+docker-data/
+
+# Hardhat temporary files
+typechain/
+coverage/
+coverage.json
+coverage.xml
+
+# Ignore compiled metadata backups
+*.tsbuildinfo
+
+# Ignore lock files if not needed
+package-lock.json
+
+# Git metadata backup
+*.orig
