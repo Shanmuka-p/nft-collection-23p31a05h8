@@ -54,8 +54,8 @@ nft-collection/
 
 1.  **Clone the repository:**
     ```bash
-    git clone <your-repo-url>
-    cd nft-collection
+    git clone https://github.com/Shanmuka-p/nft-collection-23p31a05h8.git
+    cd nft-collection-23p31a05h8
     ```
 
 2.  **Install dependencies:**
@@ -90,12 +90,12 @@ To ensure the application runs consistently across any machine, a Docker configu
 
 1.  **Build the Docker image:**
     ```bash
-    docker build -t nft-collection .
+    docker build -t nft-collection-23p31a05h8 .
     ```
 
 2.  **Execute the test suite inside the container:**
     ```bash
-    docker run nft-collection
+    docker run nft-collection-23p31a05h8
     ```
 
 **Expected Output:**
