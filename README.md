@@ -1,11 +1,5 @@
 # 🔷 NFT Collection (ERC-721)
 
-![Solidity](https://img.shields.io/badge/Solidity-%5E0.8.20-363636?style=flat-square&logo=solidity)
-![Hardhat](https://img.shields.io/badge/Built%20With-Hardhat-yellow?style=flat-square)
-![Docker](https://img.shields.io/badge/Docker-Ready-blue?style=flat-square&logo=docker)
-![Tests](https://img.shields.io/badge/Tests-Passing-success?style=flat-square)
-![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)
-
 A production-grade, ERC-721 compatible Non-Fungible Token smart contract. This project implements a secure and optimized NFT collection with strict supply management, role-based access control, and a fully containerized automated test suite.
 
 ---
